@@ -1,0 +1,22 @@
+<div
+  class="layout"
+  [class.is-mobile]="isMobile()"
+  [class.is-collapsed]="isCollapsed() && !isMobile()"
+  [class.drawer-open]="sidenavOpen()"
+  [class.sidebar-hidden]="!sidenavOpen() && !isMobile()"
+>
+  @if (isMobile() && sidenavOpen()) {
+    <button class="layout-backdrop" type="button" (click)="toggleSidenav()" aria-label="Close menu"></button>
+  }
+
+  <aside class="app-sidebar-shell">
+    <app-sidebar [class.is-collapsed]="isCollapsed() && !isMobile()" />
+  </aside>
+
+  <section class="layout-main">
+    <app-topbar (menuToggled)="toggleSidenav()" />
+    <main class="main-content">
+      <router-outlet />
+    </main>
+  </section>
+</div>

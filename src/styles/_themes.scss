@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+
+@mixin apply() {
+  $smart-inventory-theme: mat.define-theme((
+    color: (
+      theme-type: light,
+      primary: mat.$green-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: (
+      brand-family: 'DM Sans',
+      plain-family: 'DM Sans',
+      bold-weight: 700,
+      medium-weight: 500,
+      regular-weight: 400,
+    ),
+    density: (scale: -1),
+  ));
+
+  $smart-inventory-dark-theme: mat.define-theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$green-palette,
+    ),
+    typography: (
+      brand-family: 'DM Sans',
+      plain-family: 'DM Sans',
+      bold-weight: 700,
+      medium-weight: 500,
+      regular-weight: 400,
+    ),
+    density: (scale: -1),
+  ));
+
+  html {
+    @include mat.all-component-themes($smart-inventory-theme);
+  }
+
+  body.dark-theme {
+    @include mat.all-component-colors($smart-inventory-dark-theme);
+  }
+}

@@ -1,0 +1,263 @@
+.actions {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions app-search-bar {
+  display: block;
+}
+
+.add-product-button {
+  height: 54px; /* Slightly taller to match search bar */
+  align-self: stretch;
+}
+
+.panel-action-button {
+  min-width: 118px;
+}
+
+.filter-panel {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.filter-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filter-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.table-shell {
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.table-shell .mat-mdc-cell,
+.table-shell .mat-mdc-header-cell {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.table-shell .mat-mdc-row {
+  transition: background 120ms ease;
+}
+
+.table-shell .mat-mdc-row:hover {
+  background: color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
+
+table {
+  width: 100%;
+}
+
+.sku-cell {
+  color: var(--color-text-secondary);
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.product-avatar {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface-raised));
+  color: var(--color-primary);
+}
+
+.product-meta {
+  min-width: 0;
+}
+
+.product-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.product-secondary {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-text-secondary) 10%, transparent);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.empty-value {
+  color: var(--color-text-muted);
+}
+
+.price-cell {
+  text-align: right;
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-chip.is-active {
+  background: var(--color-status-active-bg) !important;
+  color: var(--color-status-active) !important;
+  border-color: color-mix(in srgb, var(--color-status-active) 22%, transparent);
+}
+
+.status-chip.is-inactive {
+  background: var(--color-status-inactive-bg) !important;
+  color: var(--color-status-inactive) !important;
+  border-color: color-mix(in srgb, var(--color-status-inactive) 22%, transparent);
+}
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 40px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-primary) 5%, transparent);
+  text-align: center;
+}
+
+.empty-icon-wrap {
+  width: 76px;
+  height: 76px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface-raised));
+  color: var(--color-primary);
+}
+
+.empty-icon-wrap .mat-icon {
+  width: 42px;
+  height: 42px;
+  font-size: 42px;
+}
+
+.empty-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.empty-subtitle {
+  max-width: 420px;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.empty-cta {
+  margin-top: 4px;
+  min-width: 160px;
+}
+
+@media (max-width: 1024px) {
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .actions {
+    align-items: stretch;
+  }
+
+  .filter-panel {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .filter-panel-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .add-product-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .panel-action-button {
+    width: 100%;
+  }
+
+  .table-shell {
+    overflow-x: auto;
+  }
+
+  .product-cell {
+    min-width: 180px;
+  }
+}

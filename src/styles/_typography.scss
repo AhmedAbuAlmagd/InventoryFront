@@ -1,0 +1,16 @@
+body {
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  text-rendering: geometricPrecision;
+}
+
+.page-title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.mono {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}

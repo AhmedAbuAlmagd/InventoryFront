@@ -1,0 +1,8 @@
+<div class="table-wrapper">
+  <table mat-table [dataSource]="data">
+    <ng-content></ng-content>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+

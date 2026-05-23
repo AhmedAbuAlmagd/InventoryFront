@@ -1,0 +1,78 @@
+<div class="login">
+  <section class="login-left">
+    <div class="left-content">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <mat-icon fontSet="material-icons-outlined">inventory_2</mat-icon>
+        </div>
+        <div class="brand-title">Smart Inventory</div>
+      </div>
+      <div class="tagline">Manage your inventory with confidence</div>
+    </div>
+    <div class="left-decor" aria-hidden="true"></div>
+  </section>
+
+  <section class="login-right">
+    <div class="form-shell">
+      <div class="card">
+        <div class="card-title">Welcome back</div>
+        <div class="card-subtitle">Sign in to your account</div>
+
+        @if (errorMessage()) {
+          <div class="error-alert" role="alert">
+            <mat-icon class="error-icon" aria-hidden="true">error_outline</mat-icon>
+            <div class="error-text">{{ errorMessage() }}</div>
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Username</mat-label>
+            <mat-icon matPrefix aria-hidden="true">person</mat-icon>
+            <input matInput formControlName="username" autocomplete="username" />
+            @if (usernameError()) {
+              <mat-error>{{ usernameError() }}</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full">
+            <mat-label>Password</mat-label>
+            <mat-icon matPrefix aria-hidden="true">lock</mat-icon>
+            <input
+              matInput
+              [type]="isPasswordVisible() ? 'text' : 'password'"
+              formControlName="password"
+              autocomplete="current-password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="isPasswordVisible() ? 'Hide password' : 'Show password'"
+            >
+              <mat-icon aria-hidden="true">{{ isPasswordVisible() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            @if (passwordError()) {
+              <mat-error>{{ passwordError() }}</mat-error>
+            }
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            color="primary"
+            class="full submit"
+            type="submit"
+            [disabled]="isLoading() || form.invalid"
+          >
+            @if (isLoading()) {
+              <mat-spinner diameter="18" />
+            } @else {
+              Sign In
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

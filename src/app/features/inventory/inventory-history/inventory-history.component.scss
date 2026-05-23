@@ -1,0 +1,138 @@
+.filters {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+table {
+  width: 100%;
+}
+
+.filters-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filters-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.panel-action-button {
+  min-width: 132px;
+}
+
+.table-shell {
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.table-shell .mat-mdc-cell,
+.table-shell .mat-mdc-header-cell {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.table-shell .mat-mdc-row {
+  transition: background 120ms ease;
+}
+
+.table-shell .mat-mdc-row:hover {
+  background: color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
+
+.type-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.type-chip.is-in {
+  background: var(--color-stock-in-bg);
+  color: var(--color-stock-in);
+  border-color: color-mix(in srgb, var(--color-stock-in) 22%, transparent);
+}
+
+.type-chip.is-out {
+  background: var(--color-stock-out-bg);
+  color: var(--color-stock-out);
+  border-color: color-mix(in srgb, var(--color-stock-out) 22%, transparent);
+}
+
+.type-icon {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+}
+
+.sku {
+  color: var(--color-text-secondary);
+}
+
+.qty {
+  text-align: right;
+}
+
+.notes-cell {
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .filters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .filters {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .filters-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .panel-action-button {
+    width: 100%;
+  }
+
+  .table-shell {
+    overflow-x: auto;
+  }
+}

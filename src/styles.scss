@@ -1,0 +1,263 @@
+@use '@angular/material' as mat;
+@use './styles/themes' as themes;
+@use './styles/variables';
+@use './styles/typography';
+
+@include mat.core();
+@include themes.apply();
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.55;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+mat-card {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 6%, transparent) !important;
+}
+
+.mat-drawer-container {
+  background: var(--color-bg) !important;
+}
+
+.mat-drawer {
+  background: var(--color-sidebar-bg) !important;
+  color: var(--color-sidebar-text) !important;
+  border-right: 1px solid var(--color-border-strong);
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-container-color: var(--color-surface-raised);
+  --mdc-outlined-text-field-outline-color: var(--color-border-strong);
+  --mdc-outlined-text-field-hover-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-focus-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-input-text-color: var(--color-text-primary);
+  --mdc-outlined-text-field-label-text-color: var(--color-text-secondary);
+  --mdc-outlined-text-field-focus-label-text-color: var(--color-primary);
+  --mat-form-field-state-layer-color: var(--color-primary);
+}
+
+.mat-mdc-unelevated-button.mat-primary,
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+  --mdc-filled-button-container-color: #4e6e4e;
+  --mdc-filled-button-label-text-color: #ffffff;
+  --mat-filled-button-state-layer-color: #ffffff;
+  border-radius: 12px !important;
+  border: 1px solid color-mix(in srgb, #4e6e4e 20%, #000) !important;
+  background: linear-gradient(180deg, #5a7d5a 0%, #4e6e4e 100%) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 1px 1px rgba(255, 255, 255, 0.2) inset,
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 12px color-mix(in srgb, #4e6e4e 25%, transparent) !important;
+}
+
+.mat-mdc-unelevated-button.mat-primary::after,
+.mat-mdc-raised-button.mat-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+.mat-mdc-unelevated-button.mat-primary:hover,
+.mat-mdc-raised-button.mat-primary:hover,
+.mat-mdc-fab.mat-primary:hover,
+.mat-mdc-mini-fab.mat-primary:hover {
+  background: linear-gradient(180deg, #648a64 0%, #547754 100%) !important;
+  box-shadow: 
+    0 1px 1px rgba(255, 255, 255, 0.2) inset,
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 8px 20px color-mix(in srgb, #4e6e4e 35%, transparent) !important;
+  transform: translateY(-2px);
+}
+
+.mat-mdc-unelevated-button.mat-primary:active,
+.mat-mdc-raised-button.mat-primary:active {
+  transform: translateY(1px);
+  background: #466246 !important;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.1) inset,
+    0 2px 4px color-mix(in srgb, #4e6e4e 20%, transparent) !important;
+}
+
+.mat-mdc-outlined-button,
+.mat-mdc-button {
+  border-radius: 12px !important;
+}
+
+.mat-mdc-unelevated-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-button {
+  min-height: 48px;
+  padding-inline: 24px !important;
+  font-weight: 600 !important;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  .mdc-button__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.mat-mdc-unelevated-button .mat-icon,
+.mat-mdc-raised-button .mat-icon,
+.mat-mdc-outlined-button .mat-icon,
+.mat-mdc-button .mat-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  margin: 0 !important;
+}
+
+.mat-mdc-outlined-button {
+  background: var(--color-surface) !important;
+  border: 1.5px solid var(--color-border-strong) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+}
+
+.mat-mdc-outlined-button:hover {
+  background: var(--color-bg) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--color-primary) 12%, transparent) !important;
+}
+
+.mat-mdc-outlined-button:active {
+  transform: translateY(1px);
+  background: color-mix(in srgb, var(--color-primary) 5%, var(--color-bg)) !important;
+}
+
+.mat-mdc-button {
+  color: var(--color-text-secondary) !important;
+}
+
+.mat-mdc-button:hover {
+  background: color-mix(in srgb, var(--color-text-primary) 6%, transparent) !important;
+  color: var(--color-text-primary) !important;
+  transform: translateY(-1px);
+}
+
+.mat-mdc-icon-button {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  color: var(--color-text-secondary) !important;
+  transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
+  background: var(--color-surface-raised) !important;
+  border: 1px solid var(--color-border) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-mdc-icon-button:hover {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-raised)) !important;
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+.mat-mdc-icon-button:active {
+  transform: translateY(1px);
+}
+
+.mat-mdc-icon-button .mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+  margin: 0 !important;
+}
+
+.mat-mdc-icon-button.mat-warn {
+  color: var(--color-error) !important;
+}
+
+.mat-mdc-icon-button.mat-warn:hover {
+  background: color-mix(in srgb, var(--color-error) 12%, var(--color-surface-raised)) !important;
+  color: var(--color-error) !important;
+  border-color: var(--color-error);
+}
+
+.mat-mdc-paginator {
+  border-top: 1px solid var(--color-border);
+}
+
+.mat-mdc-select-value,
+.mat-mdc-select-arrow,
+.mat-mdc-input-element {
+  color: var(--color-text-primary) !important;
+}
+
+.mat-mdc-option {
+  color: var(--color-text-primary);
+}
+
+.mat-mdc-paginator,
+.mat-mdc-menu-panel,
+.mat-mdc-dialog-surface {
+  background: var(--color-surface) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: var(--radius-lg);
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  margin-top: 2px;
+}
+
+.mono {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.mat-mdc-table {
+  width: 100%;
+}
+
+.mat-mdc-table .mat-mdc-header-row {
+  background: var(--color-bg);
+}
+
+.mat-mdc-table .mat-mdc-header-cell {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border-bottom-color: var(--color-border);
+}
+
+.mat-mdc-table .mat-mdc-cell {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-border);
+}
+
+.mat-mdc-table .mat-mdc-row {
+  transition: background 100ms ease;
+}
+
+.mat-mdc-table .mat-mdc-row:hover {
+  background: color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+}

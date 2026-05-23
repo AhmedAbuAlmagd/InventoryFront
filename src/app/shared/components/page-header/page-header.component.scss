@@ -1,0 +1,19 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.page-header__text h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.page-header__text p {
+  margin: 4px 0 0;
+  opacity: 0.8;
+}
+

@@ -1,0 +1,45 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <button mat-icon-button type="button" (click)="onToggleMenu()" aria-label="Toggle menu">
+      <mat-icon fontSet="material-icons-outlined">menu</mat-icon>
+    </button>
+    <div class="topbar-title">{{ pageTitle() }}</div>
+  </div>
+
+  <div class="topbar-right">
+    <!-- ... theme switch ... -->
+    <div class="dark-toggle">
+      <span class="dark-label">Appearance</span>
+      <button
+        class="theme-switch"
+        type="button"
+        [class.is-active]="theme.isDark()"
+        (click)="toggleTheme()"
+        aria-label="Toggle dark mode"
+      >
+        <mat-icon class="theme-mode-icon is-light" fontSet="material-icons-outlined" aria-hidden="true">light_mode</mat-icon>
+        <mat-icon class="theme-mode-icon is-dark" fontSet="material-icons-outlined" aria-hidden="true">dark_mode</mat-icon>
+        <span class="theme-thumb"></span>
+      </button>
+    </div>
+
+    @if (username()) {
+      <div class="user-chip">
+        <div class="avatar" aria-hidden="true">{{ initials() }}</div>
+        <div class="user-meta">
+          <div class="user-name">{{ username() }}</div>
+          @if (role()) {
+            <div class="role-badge" [class.role-admin]="role() === 'Admin'" [class.role-employee]="role() === 'Employee'">
+              {{ role() }}
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <button mat-button color="warn" type="button" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </div>
+</header>

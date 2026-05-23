@@ -1,0 +1,113 @@
+@if (isLoading()) {
+  <app-loading-spinner />
+} @else {
+  @if (errorMessage()) {
+    <div class="dashboard-alert" role="alert">{{ errorMessage() }}</div>
+  }
+
+  <div class="stats">
+    <div class="stat-card products-card">
+      <div class="stat-top">
+        <div class="stat-info">
+          <div class="stat-label">Total Products</div>
+          <div class="stat-pill">Catalog</div>
+        </div>
+        <div class="stat-icon" aria-hidden="true">
+          <mat-icon fontSet="material-icons-outlined">inventory_2</mat-icon>
+        </div>
+      </div>
+      <div class="stat-value">{{ totalProducts() }}</div>
+      <div class="stat-sub">Products in your system</div>
+    </div>
+
+    <div class="stat-card warehouses-card">
+      <div class="stat-top">
+        <div class="stat-info">
+          <div class="stat-label">Total Warehouses</div>
+          <div class="stat-pill">Network</div>
+        </div>
+        <div class="stat-icon" aria-hidden="true">
+          <mat-icon fontSet="material-icons-outlined">warehouse</mat-icon>
+        </div>
+      </div>
+      <div class="stat-value">{{ totalWarehouses() }}</div>
+      <div class="stat-sub">Locations connected</div>
+    </div>
+
+    <div class="stat-card stock-in-card">
+      <div class="stat-top">
+        <div class="stat-info">
+          <div class="stat-label">Stock In Today</div>
+          <div class="stat-pill">Inbound</div>
+        </div>
+        <div class="stat-icon" aria-hidden="true">
+          <mat-icon fontSet="material-icons-outlined">trending_up</mat-icon>
+        </div>
+      </div>
+      <div class="stat-value">{{ todayInCount() }}</div>
+      <div class="stat-sub">Transactions recorded today</div>
+    </div>
+
+    <div class="stat-card stock-out-card">
+      <div class="stat-top">
+        <div class="stat-info">
+          <div class="stat-label">Stock Out Today</div>
+          <div class="stat-pill">Outbound</div>
+        </div>
+        <div class="stat-icon" aria-hidden="true">
+          <mat-icon fontSet="material-icons-outlined">trending_down</mat-icon>
+        </div>
+      </div>
+      <div class="stat-value">{{ todayOutCount() }}</div>
+      <div class="stat-sub">Transactions recorded today</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-title">Recent Transactions</div>
+      <a class="section-link" routerLink="/inventory/history">View all</a>
+    </div>
+
+    <div class="table-card">
+      <table class="tx-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Product</th>
+            <th>Warehouse</th>
+            <th class="qty">Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tx of recentTx(); track tx.id) {
+            <tr>
+              <td>
+                <span [attr.title]="tx.createdAtUtc | date: 'medium'">{{ relativeFromNow(tx.createdAtUtc) }}</span>
+              </td>
+              <td>
+                <span class="type-chip" [class.is-in]="tx.type === 'In'" [class.is-out]="tx.type === 'Out'">
+                  <mat-icon class="type-icon" aria-hidden="true">{{ typeIcon(tx.type) }}</mat-icon>
+                  {{ typeLabel(tx.type) }}
+                </span>
+              </td>
+              <td>
+                <div class="tx-product">
+                  <span class="tx-product-name">{{ tx.productName }}</span>
+                  <span class="tx-product-meta mono">#{{ tx.id }}</span>
+                </div>
+              </td>
+              <td>{{ tx.warehouseName }}</td>
+              <td class="qty mono">{{ tx.quantity }}</td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5" class="empty-row">No recent transactions found.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+}
