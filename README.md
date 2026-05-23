@@ -39,6 +39,13 @@ The frontend provides a modern, responsive interface for managing inventory, pro
    ```
    Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Seeded Credentials
+
+The system uses the backend API for authentication. The following users are pre-seeded:
+
+- **Admin**: `admin` / `Admin@123`
+- **Employee**: `employee` / `Employee@123`
+
 4. **Build**:
    ```bash
    npm run build
